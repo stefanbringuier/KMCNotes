@@ -1,6 +1,6 @@
 ---
 title: "Kinetic Monte Carlo Review Notes"
-institute: 
+#institute: 
 date-format: short
 bibliography: _references/references.bib
 
