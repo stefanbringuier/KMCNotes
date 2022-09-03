@@ -1,0 +1,24 @@
+## Backmatter {.appendix .smaller}
+#### Connect with me!
+<div style="text-align: center;">
+
+[![](figures/stefanbringuier.png){width=125px}](https://www.stefanbringuier.info)
+
+
+[stefanbringuier@gmail.com](mailto:stefanbringuier@gmail.com)
+
+
+[{{< fa brands github size=2x >}}](https://github.com/stefanbringuier)   [{{< fa brands linkedin size=2x >}}](https://linkedin.com/in/stefanbringuier)   [{{< fa brands google size=2x >}}](https://scholar.google.com/citations?user=MhJTimgAAAAJ&hl=en)
+</div>
+
+:::{.callout-note}
+A report formated PDF of this presentation can be downloaded [here](presentation_reportformat.pdf)
+:::
+
+:::{.callout-tip}
+To export `revealjs` presentations to pdf, press 'e' then 'ctrl-p' ➡ 'save as pdf'
+:::
+
+## References {.appendix}
+::: {#refs}
+:::
