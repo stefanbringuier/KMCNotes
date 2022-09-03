@@ -12,7 +12,7 @@
 </div>
 
 :::{.callout-note}
-A report formated PDF of this presentation can be downloaded [here](presentation_reportformat.pdf)
+This presentation can be viewed online at [https://stefanbringuier.github.io/KMCNotes](https://stefanbringuier.github.io/KMCNotes). A report formated PDF of this presentation can be downloaded [here](presentation_reportformat.pdf).
 :::
 
 :::{.callout-tip}

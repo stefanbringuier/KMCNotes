@@ -1,7 +1,9 @@
+[🎥 PRESENTATION](https://stefanbringuier.github.io/KMCNotes)
+
 ## Presentation: Kinetic Monte Carlo Review Notes 
 The review notes focus on background and use cases of kinetic Monte Carlo methods with a focus on materials simulation.
 
-The presentation can be viewed on [here]() and PDF report-style version can be accessed [here](). This presentation uses  the [quarto](quarto.org) package to build a [revealjs](revealjs.com) presentation. 
+The presentation can be viewed on [https://stefanbringuier.github.io/KMCNotes](https://stefanbringuier.github.io/KMCNotes) and PDF report-style version can be accessed [here](https://stefanbringuier.github.io/KMCNotes/presentation_reportformat.pdf). This presentation uses  the [quarto](quarto.org) package to build a [revealjs](revealjs.com) presentation. 
 
 ## Cite
 
