@@ -1,5 +1,33 @@
 [
   {
+    "objectID": "presentation.html#monte-carlo-methods",
+    "href": "presentation.html#monte-carlo-methods",
+    "title": "Kinetic Monte Carlo Review Notes",
+    "section": "Monte Carlo Methods",
+    "text": "Monte Carlo Methods\n\nSolve complex problems using random sampling from a probablity distribution (i.e. stochastic description).\nUseful to evolve a physical system to a new state from an esemble of potential future states."
+  },
+  {
+    "objectID": "presentation.html#integrating-a-function-mc-sampling",
+    "href": "presentation.html#integrating-a-function-mc-sampling",
+    "title": "Kinetic Monte Carlo Review Notes",
+    "section": "Integrating a function MC sampling",
+    "text": "Integrating a function MC sampling\n\n\nIf we want to evaluate the integral of a function over some domain we can numerically approximate this using the midpoint rule: \\[ \\int_a^b f(x) dx = \\frac{b-a}{N} \\sum_{i=1}^N f(x_i)  \\qquad(1)\\]\nThere is an alternative way to do this using probablity theory to determine the expectation value of a function \\(f(x)\\) for random variable \\(x\\): \\[ \\int_a^b p(x) f(x) dx = \\frac{b-a}{N} \\sum_{i=1}^N f(x_i)  \\qquad(2)\\] where \\(p(x)\\) is a uniform probablity distribution over the interval \\([a,b]\\).\nThe difference between numerically evaluating Equation 1 and Equation 2, is that Equation 1 is evaluated over a grid of points and Equation 2 is randomly sampled points.\nThe error of MC integration is \\(\\propto \\frac{1}{\\sqrt{N}}\\) as a result of central limit theorem"
+  },
+  {
+    "objectID": "presentation.html#example-integrating-a-function-using-mc-sampling",
+    "href": "presentation.html#example-integrating-a-function-using-mc-sampling",
+    "title": "Kinetic Monte Carlo Review Notes",
+    "section": "Example integrating a function using MC sampling1",
+    "text": "Example integrating a function using MC sampling1\n\n\n\n\n\nFigure 1: Random sampled points from uniform distribution over the interval \\([1,4]\\). The black points are those that are accepted."
+  },
+  {
+    "objectID": "presentation.html#example-integrating-a-function-using-mc-sampling-1",
+    "href": "presentation.html#example-integrating-a-function-using-mc-sampling-1",
+    "title": "Kinetic Monte Carlo Review Notes",
+    "section": "Example integrating a function using MC sampling",
+    "text": "Example integrating a function using MC sampling\n\nFigure 2: Integration of \\(log(x)\\) using MC."
+  },
+  {
     "objectID": "presentation.html#backmatter",
     "href": "presentation.html#backmatter",
     "title": "Kinetic Monte Carlo Review Notes",
@@ -7,10 +35,10 @@
     "text": "Backmatter\nConnect with me!\n\n\n\n\n\n\nstefanbringuier@gmail.com\n  \n\n\n\n\n\n\n\nNote\n\n\nThis presentation can be viewed online at https://stefanbringuier.github.io/KMCNotes. A report formated PDF of this presentation can be downloaded here.\n\n\n\n\n\n\n\n\n\nTip\n\n\nTo export revealjs presentations to pdf, press ‘e’ then ‘ctrl-p’ ➡ ‘save as pdf’"
   },
   {
-    "objectID": "presentation.html#references",
-    "href": "presentation.html#references",
+    "objectID": "presentation.html#references-footnotes",
+    "href": "presentation.html#references-footnotes",
     "title": "Kinetic Monte Carlo Review Notes",
-    "section": "References",
-    "text": "References\n\n\n\n\n\n\nStefan Bringuier"
+    "section": "References & footnotes",
+    "text": "References & footnotes\n\n\n\n\n\n\nStefan Bringuier"
   }
 ]

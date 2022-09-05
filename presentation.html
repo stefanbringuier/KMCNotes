@@ -349,13 +349,49 @@
   <p class="author">Stefan Bringuier</p>
 </section>
 
+<section id="monte-carlo-methods" class="slide level2">
+<h2>Monte Carlo Methods</h2>
+<ul>
+<li>Solve complex problems using random sampling from a probablity distribution (i.e.&nbsp;stochastic description).</li>
+<li>Useful to evolve a physical system to a new state from an esemble of potential future states.</li>
+</ul>
+<!-- ![Monte Carlo methods @Andersen2019](figures/Andersen2019_fig1.jpg){#fig-andersent2019-1} -->
+</section>
+<section id="integrating-a-function-mc-sampling" class="slide level2">
+<h2>Integrating a function MC sampling</h2>
+<div style="font-size: 0.66em; text-align: center">
+<ul>
+<li><p>If we want to evaluate the integral of a function over some domain we can numerically approximate this using the <a href="https://tinyurl.com/midpoint-numerical">midpoint rule</a>: <span id="eq-midpoint-rule"><span class="math display">\[ \int_a^b f(x) dx = \frac{b-a}{N} \sum_{i=1}^N f(x_i)  \qquad(1)\]</span></span></p></li>
+<li><p>There is an alternative way to do this using probablity theory to determine the expectation value of a function <span class="math inline">\(f(x)\)</span> for random variable <span class="math inline">\(x\)</span>: <span id="eq-mc-int"><span class="math display">\[ \int_a^b p(x) f(x) dx = \frac{b-a}{N} \sum_{i=1}^N f(x_i)  \qquad(2)\]</span></span> where <span class="math inline">\(p(x)\)</span> is a uniform probablity distribution over the interval <span class="math inline">\([a,b]\)</span>.</p></li>
+<li><p>The difference between numerically evaluating <a href="#/eq-midpoint-rule">Equation&nbsp;1</a> and <a href="#/eq-mc-int">Equation&nbsp;2</a>, is that <a href="#/eq-midpoint-rule">Equation&nbsp;1</a> is evaluated over a grid of points and <a href="#/eq-mc-int">Equation&nbsp;2</a> is randomly sampled points.</p></li>
+<li><p>The error of MC integration is <span class="math inline">\(\propto \frac{1}{\sqrt{N}}\)</span> as a result of <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">central limit theorem</a></p></li>
+</ul>
+</div>
+</section>
+<section id="example-integrating-a-function-using-mc-sampling" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Example integrating a function using MC sampling<a href="#/footnotes" class="footnote-ref" id="fnref1" role="doc-noteref" data-footnote-href="#/fn1" onclick=""><sup>1</sup></a></h2>
+<div class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="70">
+<div id="fig-mc-int-a" class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="presentation_files/figure-revealjs/fig-mc-int-a-output-1.svg" class="img-fluid"></p>
+<p></p><figcaption>Figure&nbsp;1: Random sampled points from uniform distribution over the interval <span class="math inline">\([1,4]\)</span>. The black points are those that are accepted.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<aside></aside></section>
+<section id="example-integrating-a-function-using-mc-sampling-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Example integrating a function using MC sampling</h2>
+
+<img data-src="presentation_files/figure-revealjs/fig-mc-int-b-output-1.svg" class="img-fluid r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;2: Integration of <span class="math inline">\(log(x)\)</span> using MC.</p></section>
 <section id="backmatter" class="slide level2 appendix smaller">
 <h2>Backmatter</h2>
 <h4 id="connect-with-me">Connect with me!</h4>
 <div style="text-align: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://www.stefanbringuier.info"><img data-src="figures/stefanbringuier.png" width="125"></a></p>
+<p><a href="https://www.stefanbringuier.info"><img data-src="figures/stefanbringuier.png" class="img-fluid" width="125"></a></p>
 </figure>
 </div>
 <p><a href="mailto:stefanbringuier@gmail.com">stefanbringuier@gmail.com</a></p>
@@ -388,8 +424,8 @@
 </div>
 </div>
 </section>
-<section id="references" class="slide level2 appendix smaller scrollable">
-<h2>References</h2>
+<section id="references-footnotes" class="slide level2 appendix smaller scrollable">
+<h2>References &amp; footnotes</h2>
 <div id="refs" role="doc-bibliography">
 
 </div>
@@ -398,6 +434,12 @@
 <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg" class="slide-logo r-stretch"><div class="footer footer-default">
 <p>Stefan Bringuier</p>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document smaller scrollable" role="doc-endnotes"><h2>Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>A more detailed notebook implementing the code can be viewed <a href="https://stefanbringuier.github.io/PlutoNotebookBlogging/assets/notebooks/TrivialMC.html">here</a></p></li>
+</ol>
 </section>
     </div>
   </div>
@@ -428,7 +470,7 @@
 'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
-'autoAnimateDuration': 1,
+'autoAnimateDuration': 0.01,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
@@ -451,7 +493,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'h.v',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
