@@ -6,8 +6,10 @@ bibliography: _references/references.bib
 
 format:
     revealjs:
+        theme: [custom.scss]
         menu: true
         numbers: true
+        slide-number: true
         chalkboard: false
         toc: true
         toc-depth: 1
@@ -27,6 +29,9 @@ format:
         citations-hover: true
         preview-links: false
         self-contained: false
+        fig-align: center
+        fig-responsive: true
+        auto-animate-duration: 0.01
     pdf: 
         pdf-engine: lualatex
         latex-output-dir: output
@@ -41,5 +46,8 @@ from: markdown+emoji
 jupyter: julia-1.8
 ---
 
+{{< include _juliaenv.qmd >}}
+
+{{< include slides/_formalism.qmd >}}
 
 {{< include slides/_backmatter.qmd >}}

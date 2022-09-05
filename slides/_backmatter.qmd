@@ -19,6 +19,6 @@ This presentation can be viewed online at [https://stefanbringuier.github.io/KMC
 To export `revealjs` presentations to pdf, press 'e' then 'ctrl-p' ➡ 'save as pdf'
 :::
 
-## References {.appendix}
+## References & footnotes {.appendix}
 ::: {#refs}
 :::

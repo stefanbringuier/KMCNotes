@@ -1,0 +1,108 @@
+
+## Monte Carlo Methods
+
+* Solve complex problems using random sampling from a probablity distribution (i.e. stochastic description).
+* Useful to evolve a physical system to a new state from an esemble of potential future states.
+
+![Monte Carlo methods @Andersen2019](figures/Andersen2019_fig1.jpg){#fig-andersent2019-1}
+
+
+## Integrating a function MC sampling
+::: {style="font-size: 0.66em; text-align: center"}
+
+* If we want to evaluate the integral of a function over some domain we can numerically approximate this using the [midpoint rule](https://math.libretexts.org/Courses/Mount_Royal_University/MATH_2200%3A_Calculus_for_Scientists_II/2%3A_Techniques_of_Integration/2.5%3A_Numerical_Integration_-_Midpoint%2C_Trapezoid%2C_Simpson's_rule):
+$$ \int_a^b f(x) dx = \frac{b-a}{N} \sum_{i=1}^N f(x_i) $$ {#eq-midpoint-rule}
+
+* There is an alternative way to do this using probablity theory to determine the expectation value of a function $f(x)$ for random variable $x$:
+$$ \int_a^b p(x) f(x) dx = \frac{b-a}{N} \sum_{i=1}^N f(x_i) $$ {#eq-mc-int}
+where $p(x)$ is a uniform probablity distribution over the interval $[a,b]$.
+
+
+* The difference between numerically evaluating @eq-midpoint-rule and @eq-mc-int, is that @eq-midpoint-rule is evaluated over a grid of points and @eq-mc-int is randomly sampled points.
+
+* The error of MC integration is $\propto \frac{1}{\sqrt{N}}$ as a result of [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem)
+
+:::
+
+
+```{julia}
+#| echo: false
+using Plots
+using Distributions
+begin
+	struct Sampler{T<:Distribution,S<:Distribution}
+		x::T
+		y::S
+	end
+	Sampler() = Sampler([Uniform(),Uniform()])
+	Base.rand(s::Sampler) = begin
+		x′,y′ = rand(s.x), rand(s.y)
+		return x′,y′
+	end
+end;
+
+struct MCInt
+	value::Number
+	interval::Tuple{Number,Number}
+	steps::Integer
+	history::Vector
+	points::AbstractArray
+end;
+
+function montecarlo_integrate(f::Function,a,b;
+							  s::Sampler=Sampler(),
+							  N=1000, ybounds=(0.0,1.0),
+							  keep_points=false)
+	count = 0.0e0;
+	mcaccum = zeros(N)
+	points = Tuple{Float64,Float64}[]
+	h = sum(ybounds);
+	for i=1:N
+		x′,y′ = rand(s.x),rand(s.y)
+		if y′ < f(x′)
+			count += 1
+		end
+		keep_points ? push!(points,(x′,y′)) : nothing
+		mcaccum[i] = (b-a) * h * count / i
+	end
+	value  = (b-a) * h * count / N
+	return MCInt(value,(a,b),N,mcaccum,
+			     reinterpret(reshape,Float64,points)
+				)
+	end
+	
+xₘᵢₙ,xₘₐₓ = 1.0, 4.0
+analytical = (xₘₐₓ*log(xₘₐₓ)-xₘₐₓ) - (xₘᵢₙ*log(xₘᵢₙ)-xₘᵢₙ)
+
+s = Sampler(Uniform(xₘᵢₙ,xₘₐₓ),Uniform(log(xₘᵢₙ),log(xₘₐₓ)))
+mcint_log = montecarlo_integrate(log,xₘᵢₙ,xₘₐₓ;
+								 s=s,
+								 ybounds=(log(xₘᵢₙ),log(xₘₐₓ)),
+ 								 N=1000,
+								 keep_points=true);
+```
+
+## Example integrating a function using MC sampling^[A more detailed notebook implementing the code can be viewed [here](https://stefanbringuier.github.io/PlutoNotebookBlogging/assets/notebooks/TrivialMC.html)]{auto-animate=true}
+
+
+```{julia}
+#| echo: false
+#| label: fig-mc-int-a
+#| fig-cap: Random sampled points from uniform distribution over the interval $[1,4]$. The black points are those that are accepted.
+p1 = plot(log,xₘᵢₙ:0.1:xₘₐₓ,lw=3,lc=:blue,
+	label="Function",xlabel="x",ylabel="log(x)")
+z = map(x-> x ? :black : :red,log.(mcint_log.points[1,:]) .> mcint_log.points[2,:])  
+scatter!(p1,mcint_log.points[1,:],mcint_log.points[2,:],label="Sampled points",mc=z,msc=nothing)
+```
+
+## Example integrating a function using MC sampling{auto-animate=true}
+
+```{julia}
+#| echo: false
+#| label: fig-mc-int-b
+#| fig-cap: Integration of $log(x)$ using MC.
+p2 = plot(mcint_log.history,label="MC trajectory",
+		xlabel="MC steps",ylabel="MC value")
+plot!(p2,[analytical],st=:hline,lw=2,label="Analytical")
+```
+
