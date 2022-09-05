@@ -4,13 +4,13 @@
 * Solve complex problems using random sampling from a probablity distribution (i.e. stochastic description).
 * Useful to evolve a physical system to a new state from an esemble of potential future states.
 
-![Monte Carlo methods @Andersen2019](figures/Andersen2019_fig1.jpg){#fig-andersent2019-1}
+<!-- ![Monte Carlo methods @Andersen2019](figures/Andersen2019_fig1.jpg){#fig-andersent2019-1} -->
 
 
 ## Integrating a function MC sampling
 ::: {style="font-size: 0.66em; text-align: center"}
 
-* If we want to evaluate the integral of a function over some domain we can numerically approximate this using the [midpoint rule](https://math.libretexts.org/Courses/Mount_Royal_University/MATH_2200%3A_Calculus_for_Scientists_II/2%3A_Techniques_of_Integration/2.5%3A_Numerical_Integration_-_Midpoint%2C_Trapezoid%2C_Simpson's_rule):
+* If we want to evaluate the integral of a function over some domain we can numerically approximate this using the [midpoint rule](https://tinyurl.com/midpoint-numerical):
 $$ \int_a^b f(x) dx = \frac{b-a}{N} \sum_{i=1}^N f(x_i) $$ {#eq-midpoint-rule}
 
 * There is an alternative way to do this using probablity theory to determine the expectation value of a function $f(x)$ for random variable $x$:

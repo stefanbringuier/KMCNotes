@@ -361,7 +361,7 @@
 <h2>Integrating a function MC sampling</h2>
 <div style="font-size: 0.66em; text-align: center">
 <ul>
-<li><p>If we want to evaluate the integral of a function over some domain we can numerically approximate this using the <a href="https://math.libretexts.org/Courses/Mount_Royal_University/MATH_2200%3A_Calculus_for_Scientists_II/2%3A_Techniques_of_Integration/2.5%3A_Numerical_Integration_-_Midpoint%2C_Trapezoid%2C_Simpson's_rule">midpoint rule</a>: <span id="eq-midpoint-rule"><span class="math display">\[ \int_a^b f(x) dx = \frac{b-a}{N} \sum_{i=1}^N f(x_i)  \qquad(1)\]</span></span></p></li>
+<li><p>If we want to evaluate the integral of a function over some domain we can numerically approximate this using the <a href="https://tinyurl.com/midpoint-numerical">midpoint rule</a>: <span id="eq-midpoint-rule"><span class="math display">\[ \int_a^b f(x) dx = \frac{b-a}{N} \sum_{i=1}^N f(x_i)  \qquad(1)\]</span></span></p></li>
 <li><p>There is an alternative way to do this using probablity theory to determine the expectation value of a function <span class="math inline">\(f(x)\)</span> for random variable <span class="math inline">\(x\)</span>: <span id="eq-mc-int"><span class="math display">\[ \int_a^b p(x) f(x) dx = \frac{b-a}{N} \sum_{i=1}^N f(x_i)  \qquad(2)\]</span></span> where <span class="math inline">\(p(x)\)</span> is a uniform probablity distribution over the interval <span class="math inline">\([a,b]\)</span>.</p></li>
 <li><p>The difference between numerically evaluating <a href="#/eq-midpoint-rule">Equation&nbsp;1</a> and <a href="#/eq-mc-int">Equation&nbsp;2</a>, is that <a href="#/eq-midpoint-rule">Equation&nbsp;1</a> is evaluated over a grid of points and <a href="#/eq-mc-int">Equation&nbsp;2</a> is randomly sampled points.</p></li>
 <li><p>The error of MC integration is <span class="math inline">\(\propto \frac{1}{\sqrt{N}}\)</span> as a result of <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">central limit theorem</a></p></li>
@@ -371,7 +371,7 @@
 <section id="example-integrating-a-function-using-mc-sampling" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Example integrating a function using MC sampling<a href="#/footnotes" class="footnote-ref" id="fnref1" role="doc-noteref" data-footnote-href="#/fn1" onclick=""><sup>1</sup></a></h2>
 <div class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="58">
 <div id="fig-mc-int-a" class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="presentation_files/figure-revealjs/fig-mc-int-a-output-1.svg" class="img-fluid"></p>
