@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.1.179">
 
   <meta name="author" content="Stefan Bringuier">
-  <title>Kinetic Monte Carlo Review Notes</title>
+  <title>Kinetic Monte Carlo Notes</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -345,7 +345,7 @@
     <div class="slides">
 
 <section id="title-slide" class="center">
-  <h1 class="title">Kinetic Monte Carlo Review Notes</h1>
+  <h1 class="title">Kinetic Monte Carlo Notes</h1>
   <p class="author">Stefan Bringuier</p>
 </section>
 
@@ -371,7 +371,7 @@
 <section id="example-integrating-a-function-using-mc-sampling" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Example integrating a function using MC sampling<a href="#/footnotes" class="footnote-ref" id="fnref1" role="doc-noteref" data-footnote-href="#/fn1" onclick=""><sup>1</sup></a></h2>
 <div class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="70">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div id="fig-mc-int-a" class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="presentation_files/figure-revealjs/fig-mc-int-a-output-1.svg" class="img-fluid"></p>
@@ -385,6 +385,42 @@
 <h2 data-id="quarto-animate-title">Example integrating a function using MC sampling</h2>
 
 <img data-src="presentation_files/figure-revealjs/fig-mc-int-b-output-1.svg" class="img-fluid r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;2: Integration of <span class="math inline">\(log(x)\)</span> using MC.</p></section>
+<section id="statistical-thermodynamics-ensemble-properties" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Statistical Thermodynamics &amp; Ensemble Properties</h2>
+<div style="font-size: 0.7em; text-align: center">
+<ul>
+<li>Microscopic → Macroscopic description
+<ul>
+<li>How positions and momenta of <span class="math inline">\(10^{23}\)</span> particles relates to bulk temperature, pressure, or volume.</li>
+</ul></li>
+<li>Ensembles use probablity of specific microstate. Probability theory provides average of a function or variable, <span class="math inline">\(\langle X \rangle\)</span>: <span id="eq-prob-averages"><span class="math display">\[
+\langle X \rangle = \frac{1}{N} \sum_{i=1}^N n_i \, X_i = \sum_{i=1}^N \underbrace{p_i}_{\text{PDF}} X_i
+\qquad(3)\]</span></span></li>
+<li>If <span class="math inline">\(\langle X \rangle\)</span> is continous, <a href="#/eq-prob-averages">Equation&nbsp;3</a> is an integral.</li>
+<li><span class="math inline">\(p_i\)</span> is the probablity the system is in state <span class="math inline">\(i\)</span>. The probablity density function (PDF) has the property that its normalized, i.e.&nbsp;<span class="math inline">\(\sum_{i=1}^N p_i = 1\)</span></li>
+</ul>
+</div>
+</section>
+<section id="statistical-thermodynamics-ensemble-properties-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Statistical Thermodynamics &amp; Ensemble Properties</h2>
+<div style="font-size: 0.7em; text-align: center">
+<ul>
+<li>The consqequence of <a href="#/eq-prob-averages">Equation&nbsp;3</a> is that microscopic collections (i.e.&nbsp;ensemble of systems) can be used to calculate macroscopic properties.</li>
+<li>Choice of <span class="math inline">\(p_i=\frac{z_i}{Z}\)</span> depends on macroscopic conditions which manifest through the partition function: <span id="eq-partition"><span class="math display">\[
+Z = \sum_i e^{-\beta\,X_i}
+\qquad(4)\]</span></span></li>
+<li>For a macroscopic system that has constant particles, volume and temperature, i.e., <a href="https://en.wikipedia.org/wiki/Canonical_ensemble">canonical</a>.
+<ul>
+<li><span class="math inline">\(\beta = \frac{1}{k_b\,T}\)</span> and <span class="math inline">\(X_i=E_i\)</span> where Boltzmann factor is <span class="math inline">\(z_i = e^{-\frac{E_i}{k_b\,T}}\)</span> <span id="eq-energy-nvt"><span class="math display">\[
+\langle E \rangle = \frac{1}{Z} \sum_i e^{-\frac{E_i}{k_b\,T}} E_i
+\qquad(5)\]</span></span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+</section>
 <section id="backmatter" class="slide level2 appendix smaller">
 <h2>Backmatter</h2>
 <h4 id="connect-with-me">Connect with me!</h4>
