@@ -1,5 +1,5 @@
 ---
-title: "Kinetic Monte Carlo Review Notes"
+title: "Kinetic Monte Carlo Notes"
 #institute: 
 date-format: short
 bibliography: _references/references.bib
@@ -32,13 +32,15 @@ format:
         fig-align: center
         fig-responsive: true
         auto-animate-duration: 0.01
-    pdf: 
+    pdf:
         pdf-engine: lualatex
         latex-output-dir: output
         output-file: presentation_reportformat.pdf
-        documentclass: scrartcl
+        documentclass: scrreport
+        fig-pos: "H"
         output: true
         toc: true
+        lof: true
         colorlinks: true
         code-line-numbers: true
 

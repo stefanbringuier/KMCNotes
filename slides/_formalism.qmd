@@ -106,3 +106,32 @@ p2 = plot(mcint_log.history,label="MC trajectory",
 plot!(p2,[analytical],st=:hline,lw=2,label="Analytical")
 ```
 
+## Statistical Thermodynamics & Ensemble Properties {auto-animate=true}
+::: {style="font-size: 0.7em; text-align: center"}
+
+* Microscopic → Macroscopic description
+	* How positions and momenta of $10^{23}$ particles relates to bulk temperature, pressure, or volume.
+* Ensembles use probablity of specific microstate. Probability theory provides average of a function or variable, $\langle X \rangle$:
+$$
+\langle X \rangle = \frac{1}{N} \sum_{i=1}^N n_i \, X_i = \sum_{i=1}^N \underbrace{p_i}_{\text{PDF}} X_i
+$${#eq-prob-averages}
+* If $\langle X \rangle$ is continous, @eq-prob-averages is an integral. 
+* $p_i$ is the probablity the system is in state $i$. The probablity density function (PDF) has the property that its normalized, i.e. $\sum_{i=1}^N p_i = 1$ 
+:::
+
+## Statistical Thermodynamics & Ensemble Properties {auto-animate=true}
+::: {style="font-size: 0.7em; text-align: center"}
+* The consqequence of @eq-prob-averages is that microscopic collections (i.e. ensemble of systems) can be used to calculate macroscopic properties.
+* Choice of $p_i=\frac{z_i}{Z}$ depends on macroscopic conditions which manifest through the partition function:
+$$
+Z = \sum_i e^{-\beta\,X_i}
+$$ {#eq-partition}
+*  For a macroscopic system that has constant particles, volume and temperature, i.e., [canonical](https://en.wikipedia.org/wiki/Canonical_ensemble).
+	* $\beta = \frac{1}{k_b\,T}$ and $X_i=E_i$ where Boltzmann factor is  $z_i = e^{-\frac{E_i}{k_b\,T}}$
+$$
+\langle E \rangle = \frac{1}{Z} \sum_i e^{-\frac{E_i}{k_b\,T}} E_i
+$$ {#eq-energy-nvt}
+:::
+
+##
+
