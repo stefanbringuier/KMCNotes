@@ -1,6 +1,6 @@
 ## KMC CVD Example {auto-animate=true}
 
-![KMC Example](figures/KMC_CVD_12x12_1000.gif){#fig-kmc-cvd-example}
+<!-- ![KMC Example](figures/KMC_CVD_12x12_1000.gif){#fig-kmc-cvd-example} -->
 
 ## KMC CVD Example height
 
