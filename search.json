@@ -42,6 +42,27 @@
     "text": "Statistical Thermodynamics & Ensemble Properties\n\n\nThe consqequence of Equation 3 is that microscopic collections (i.e. ensemble of systems) can be used to calculate macroscopic properties.\nChoice of \\(p_i=\\frac{z_i}{Z}\\) depends on macroscopic conditions which manifest through the partition function: \\[\nZ = \\sum_i e^{-\\beta\\,X_i}\n\\qquad(4)\\]\nFor a macroscopic system that has constant particles, volume and temperature, i.e., canonical.\n\n\\(\\beta = \\frac{1}{k_b\\,T}\\) and \\(X_i=E_i\\) where Boltzmann factor is \\(z_i = e^{-\\frac{E_i}{k_b\\,T}}\\) \\[\n\\langle E \\rangle = \\frac{1}{Z} \\sum_i e^{-\\frac{E_i}{k_b\\,T}} E_i\n\\qquad(5)\\]"
   },
   {
+    "objectID": "presentation.html#statistical-thermodynamics-ensemble-properties-2",
+    "href": "presentation.html#statistical-thermodynamics-ensemble-properties-2",
+    "title": "Kinetic Monte Carlo Notes",
+    "section": "Statistical Thermodynamics & Ensemble Properties",
+    "text": "Statistical Thermodynamics & Ensemble Properties\n\n\nThe biggest challenge in evaluating Equation 5 is it requires knowledge of all possible configurations.\nIf \\(Z\\) is a configurational integral, e.g., \\(Z = \\int e^{-U(\\mathbf{r}^N)/k_B\\,T} d\\mathbf{r}^N\\), then there are \\(3N\\) possible configs!\nThe key insight is that most configurations are not probable:\n\nIf the two atoms are extremely close at moderate \\(T\\), the term \\(U(\\mathbf{r})\\) is large an hence the probablity low.\n\nThe question then becomes, can we determine \\(p_i = \\frac{1}{Z}e^{-\\frac{E_i}{k_B\\,T}}\\) efficiently, that is the states with highest probablity centered around \\(\\langle E \\rangle\\) given that \\(Z\\) is not accessible.\n\n\n\n\n\\(U(\\mathbf{r})\\) is the potential energy between pairs of atoms."
+  },
+  {
+    "objectID": "presentation.html#kmc-cvd-example",
+    "href": "presentation.html#kmc-cvd-example",
+    "title": "Kinetic Monte Carlo Notes",
+    "section": "KMC CVD Example",
+    "text": "KMC CVD Example"
+  },
+  {
+    "objectID": "presentation.html#kmc-cvd-example-height",
+    "href": "presentation.html#kmc-cvd-example-height",
+    "title": "Kinetic Monte Carlo Notes",
+    "section": "KMC CVD Example height",
+    "text": "KMC CVD Example height"
+  },
+  {
     "objectID": "presentation.html#backmatter",
     "href": "presentation.html#backmatter",
     "title": "Kinetic Monte Carlo Notes",

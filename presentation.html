@@ -371,7 +371,7 @@
 <section id="example-integrating-a-function-using-mc-sampling" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Example integrating a function using MC sampling<a href="#/footnotes" class="footnote-ref" id="fnref1" role="doc-noteref" data-footnote-href="#/fn1" onclick=""><sup>1</sup></a></h2>
 <div class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <div id="fig-mc-int-a" class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="presentation_files/figure-revealjs/fig-mc-int-a-output-1.svg" class="img-fluid"></p>
@@ -418,8 +418,30 @@ Z = \sum_i e^{-\beta\,X_i}
 </ul>
 </div>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
+<section id="statistical-thermodynamics-ensemble-properties-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Statistical Thermodynamics &amp; Ensemble Properties</h2>
+<div style="font-size: 0.7em; text-align: center">
+<ul>
+<li>The biggest challenge in evaluating <a href="#/eq-energy-nvt">Equation&nbsp;5</a> is it requires knowledge of all possible configurations.</li>
+<li>If <span class="math inline">\(Z\)</span> is a configurational integral, e.g., <span class="math inline">\(Z = \int e^{-U(\mathbf{r}^N)/k_B\,T} d\mathbf{r}^N\)</span>, then there are <span class="math inline">\(3N\)</span> possible configs!</li>
+<li>The key insight is that most configurations are not probable:
+<ul>
+<li>If the two atoms are extremely close at moderate <span class="math inline">\(T\)</span>, the term <span class="math inline">\(U(\mathbf{r})\)</span> is large an hence the probablity low.</li>
+</ul></li>
+<li>The question then becomes, can we determine <span class="math inline">\(p_i = \frac{1}{Z}e^{-\frac{E_i}{k_B\,T}}\)</span> efficiently, that is the states with highest probablity centered around <span class="math inline">\(\langle E \rangle\)</span> given that <span class="math inline">\(Z\)</span> is not accessible.</li>
+</ul>
+
+</div>
+<aside><div>
+<p><span class="math inline">\(U(\mathbf{r})\)</span> is the potential energy between pairs of atoms.</p>
+</div></aside></section>
+<section id="kmc-cvd-example" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">KMC CVD Example</h2>
+<!-- ![KMC Example](figures/KMC_CVD_12x12_1000.gif){#fig-kmc-cvd-example} -->
+</section>
+<section id="kmc-cvd-example-height" class="slide level2">
+<h2>KMC CVD Example height</h2>
+<!-- ![KMC Surface Height](figures/KMC_CVD_12x12_1000_surface_height.svg){#fig-kmc-cvd-example-height} -->
 </section>
 <section id="backmatter" class="slide level2 appendix smaller">
 <h2>Backmatter</h2>
