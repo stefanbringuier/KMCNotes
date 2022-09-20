@@ -4,4 +4,4 @@
 
 ## KMC CVD Example height
 
-![KMC Surface Height](figures/KMC_CVD_12x12_1000_surface_height.svg){#fig-kmc-cvd-example-height}
+<!-- ![KMC Surface Height](figures/KMC_CVD_12x12_1000_surface_height.svg){#fig-kmc-cvd-example-height} -->
