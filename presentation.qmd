@@ -52,4 +52,6 @@ jupyter: julia-1.8
 
 {{< include slides/_formalism.qmd >}}
 
+{{< include slides/_kmc_examples.qmd >}}
+
 {{< include slides/_backmatter.qmd >}}

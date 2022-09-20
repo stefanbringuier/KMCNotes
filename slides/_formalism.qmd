@@ -133,5 +133,20 @@ $$
 $$ {#eq-energy-nvt}
 :::
 
-##
+## Statistical Thermodynamics & Ensemble Properties {auto-animate=true}
+::: {style="font-size: 0.7em; text-align: center"}
+
+* The biggest challenge in evaluating @eq-energy-nvt is it requires knowledge of all possible configurations.
+* If $Z$ is a configurational integral, e.g., $Z = \int e^{-U(\mathbf{r}^N)/k_B\,T} d\mathbf{r}^N$, then there are $3N$ possible configs!
+* The key insight is that most configurations are not probable:
+	- If the two atoms are extremely close at moderate $T$, the term $U(\mathbf{r})$ is large an hence the probablity low.
+* The question then becomes, can we determine $p_i = \frac{1}{Z}e^{-\frac{E_i}{k_B\,T}}$ efficiently, that is the states with highest probablity centered around $\langle E \rangle$ given that $Z$ is not accessible.
+
+
+::: aside
+$U(\mathbf{r})$ is the potential energy between pairs of atoms.
+:::
+
+:::
+
 
