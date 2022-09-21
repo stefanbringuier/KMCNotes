@@ -371,7 +371,7 @@
 <section id="example-integrating-a-function-using-mc-sampling" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Example integrating a function using MC sampling<a href="#/footnotes" class="footnote-ref" id="fnref1" role="doc-noteref" data-footnote-href="#/fn1" onclick=""><sup>1</sup></a></h2>
 <div class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="28">
 <div id="fig-mc-int-a" class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="presentation_files/figure-revealjs/fig-mc-int-a-output-1.svg" class="img-fluid"></p>
@@ -435,6 +435,14 @@ Z = \sum_i e^{-\beta\,X_i}
 <aside><div>
 <p><span class="math inline">\(U(\mathbf{r})\)</span> is the potential energy between pairs of atoms.</p>
 </div></aside></section>
+<section id="metropolis-monte-carlo" class="slide level2">
+<h2>Metropolis Monte Carlo</h2>
+<ul>
+<li>If we wanted to evaluate <a href="#/eq-energy-nvt">Equation&nbsp;5</a> for an atomic system (i.e.&nbsp;the discrete states are replaced by continous atomic configurations), we could use the MC sampling as in <a href="#/eq-mc-int">Equation&nbsp;2</a>.</li>
+<li>However we need to integrate over <span class="math inline">\(3N\)</span> dimensions!</li>
+<li>This eliminates the feasability for determining the partition function <span class="math inline">\(Z\)</span> which is required to know the probablity of any specific configuration <span class="math inline">\(p_i\)</span></li>
+</ul>
+</section>
 <section id="kmc-cvd-example" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">KMC CVD Example</h2>
 <!-- ![KMC Example](figures/KMC_CVD_12x12_1000.gif){#fig-kmc-cvd-example} -->
@@ -482,10 +490,18 @@ Z = \sum_i e^{-\beta\,X_i}
 </div>
 </div>
 </section>
-<section id="references-footnotes" class="slide level2 appendix smaller scrollable">
-<h2>References &amp; footnotes</h2>
-<div id="refs" role="doc-bibliography">
-
+<section id="references" class="slide level2 appendix smaller scrollable">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Andersen2019" class="csl-entry" role="doc-biblioentry">
+Andersen, Mie, Chiara Panosetti, and Karsten Reuter. 2019. <span>“A Practical Guide to Surface Kinetic Monte Carlo Simulations.”</span> <em>Frontiers in Chemistry</em> 7. <a href="https://doi.org/10.3389/fchem.2019.00202">https://doi.org/10.3389/fchem.2019.00202</a>.
+</div>
+<div id="ref-Lesar2013" class="csl-entry" role="doc-biblioentry">
+LeSar, R. 2013. <em>Introduction to Computational Materials Science: Fundamentals to Applications</em>. Cambridge University Press. <a href="https://books.google.com/books?id=QzkhAwAAQBAJ">https://books.google.com/books?id=QzkhAwAAQBAJ</a>.
+</div>
+<div id="ref-Numerical2021" class="csl-entry" role="doc-biblioentry">
+<span>“Numerical <span>Integration</span> - <span>Midpoint</span>, <span>Trapezoid</span>, <span>Simpson</span>’s Rule.”</span> 2021.
+</div>
 </div>
 
 

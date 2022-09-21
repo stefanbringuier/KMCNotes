@@ -49,6 +49,13 @@
     "text": "Statistical Thermodynamics & Ensemble Properties\n\n\nThe biggest challenge in evaluating Equation 5 is it requires knowledge of all possible configurations.\nIf \\(Z\\) is a configurational integral, e.g., \\(Z = \\int e^{-U(\\mathbf{r}^N)/k_B\\,T} d\\mathbf{r}^N\\), then there are \\(3N\\) possible configs!\nThe key insight is that most configurations are not probable:\n\nIf the two atoms are extremely close at moderate \\(T\\), the term \\(U(\\mathbf{r})\\) is large an hence the probablity low.\n\nThe question then becomes, can we determine \\(p_i = \\frac{1}{Z}e^{-\\frac{E_i}{k_B\\,T}}\\) efficiently, that is the states with highest probablity centered around \\(\\langle E \\rangle\\) given that \\(Z\\) is not accessible.\n\n\n\n\n\\(U(\\mathbf{r})\\) is the potential energy between pairs of atoms."
   },
   {
+    "objectID": "presentation.html#metropolis-monte-carlo",
+    "href": "presentation.html#metropolis-monte-carlo",
+    "title": "Kinetic Monte Carlo Notes",
+    "section": "Metropolis Monte Carlo",
+    "text": "Metropolis Monte Carlo\n\nIf we wanted to evaluate Equation 5 for an atomic system (i.e. the discrete states are replaced by continous atomic configurations), we could use the MC sampling as in Equation 2.\nHowever we need to integrate over \\(3N\\) dimensions!\nThis eliminates the feasability for determining the partition function \\(Z\\) which is required to know the probablity of any specific configuration \\(p_i\\)"
+  },
+  {
     "objectID": "presentation.html#kmc-cvd-example",
     "href": "presentation.html#kmc-cvd-example",
     "title": "Kinetic Monte Carlo Notes",
@@ -70,10 +77,10 @@
     "text": "Backmatter\nConnect with me!\n\n\n\n\n\n\nstefanbringuier@gmail.com\n  \n\n\n\n\n\n\n\nNote\n\n\nThis presentation can be viewed online at https://stefanbringuier.github.io/KMCNotes. A report formated PDF of this presentation can be downloaded here.\n\n\n\n\n\n\n\n\n\nTip\n\n\nTo export revealjs presentations to pdf, press ‘e’ then ‘ctrl-p’ ➡ ‘save as pdf’"
   },
   {
-    "objectID": "presentation.html#references-footnotes",
-    "href": "presentation.html#references-footnotes",
+    "objectID": "presentation.html#references",
+    "href": "presentation.html#references",
     "title": "Kinetic Monte Carlo Notes",
-    "section": "References & footnotes",
-    "text": "References & footnotes\n\n\n\n\n\n\nStefan Bringuier"
+    "section": "References",
+    "text": "References\n\n\nAndersen, Mie, Chiara Panosetti, and Karsten Reuter. 2019. “A Practical Guide to Surface Kinetic Monte Carlo Simulations.” Frontiers in Chemistry 7. https://doi.org/10.3389/fchem.2019.00202.\n\n\nLeSar, R. 2013. Introduction to Computational Materials Science: Fundamentals to Applications. Cambridge University Press. https://books.google.com/books?id=QzkhAwAAQBAJ.\n\n\n“Numerical Integration - Midpoint, Trapezoid, Simpson’s Rule.” 2021.\n\n\n\n\n\nStefan Bringuier"
   }
 ]
