@@ -149,4 +149,11 @@ $U(\mathbf{r})$ is the potential energy between pairs of atoms.
 
 :::
 
+## Metropolis Monte Carlo
+
+* If we wanted to evaluate  @eq-energy-nvt  for an atomic system (i.e. the discrete states are replaced by continous atomic configurations), we could use the MC sampling as in @eq-mc-int.
+* However we need to integrate over  $3N$ dimensions!
+* This eliminates the feasability for determining the partition function $Z$ which is required to know the probablity of any specific configuration $p_i$
+
+
 
