@@ -155,5 +155,37 @@ $U(\mathbf{r})$ is the potential energy between pairs of atoms.
 * However we need to integrate over  $3N$ dimensions!
 * This eliminates the feasability for determining the partition function $Z$ which is required to know the probablity of any specific configuration $p_i$
 
+## Metropolis Monte Carlo {auto-animate=true}
+::: {style="font-size: 0.9em; text-align: center"}
+
+* The [Metropolis algorithm](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm) is a process to sample states $i$ with probablity $p_i$
+* This is achieved by using relative probablities, i.e., $\frac{p_i}{p_j}$
+* From this we get the correct average quantities.
+* This works because, even though we don't know $Z$ and can't determine $p_i$, the results of $\frac{p_i}{p_j}$ gives the correct distribution
+* Relative probablities  are given as:
+$$
+\frac{p_i}{p_j} = \frac{e^{-E_i/\,k_B\,T}}{Z} \frac{Z}{e^{-E_j/\,k_B\,T}} = e^{-(E_i - E_j)/\,k_B\,T}
+$${#eq-relative-probs}
+* Which only depends on energy difference between states as shown in graph
+:::
+
+## Metropolis Monte Carlo {auto-animate=true}
+```{julia}
+#| echo: false
+#| label: fig-relative-probs
+#| fig-cap: Relative probablity for two states.
+plot(exp,range(0,10,length=100),yaxis=:log,ylabel="relative prob.", xlabel = "\$\\Delta E\$")
+plot!(exp,range(-10,0,length=100),yaxis=:log)
+hline!([1],label=nothing,ls=:dash,lc=:black)
+annotate!([(-3,100,"if \$E_i - E_j \\leq 0\$ then \$\\frac{p_i}{p_j} \\geq 1\$")])
+annotate!([(3,0.001,"if \$E_i - E_j > 0\$ then \$\\frac{p_i}{p_j}  < 1\$")])
+```
 
 
+## Metropolis Monte Carlo {auto-animate=true}
+*  In the metropolis MC approach we use the relations on @fig-relative-probs to create a trajectory of states.
+* The steps for MMC are:
+    1. Generate configuration $i$ with $E_i$
+	2. Randomly trial configuration, $i+1$, and calculate $E_{i+1}$
+	3. Get relative probablity via @eq-relative-probs.
+	4. Use relations in @fig-relative-probs to accept or accept with probability $\frac{p_i}{p_j} < 1$ given a randomly generated number betwen $(0,1)$
