@@ -56,18 +56,25 @@
     "text": "Metropolis Monte Carlo\n\nIf we wanted to evaluate Equation 5 for an atomic system (i.e. the discrete states are replaced by continous atomic configurations), we could use the MC sampling as in Equation 2.\nHowever we need to integrate over \\(3N\\) dimensions!\nThis eliminates the feasability for determining the partition function \\(Z\\) which is required to know the probablity of any specific configuration \\(p_i\\)"
   },
   {
-    "objectID": "presentation.html#kmc-cvd-example",
-    "href": "presentation.html#kmc-cvd-example",
+    "objectID": "presentation.html#metropolis-monte-carlo-1",
+    "href": "presentation.html#metropolis-monte-carlo-1",
     "title": "Kinetic Monte Carlo Notes",
-    "section": "KMC CVD Example",
-    "text": "KMC CVD Example"
+    "section": "Metropolis Monte Carlo",
+    "text": "Metropolis Monte Carlo\n\n\nThe Metropolis algorithm is a process to sample states \\(i\\) with probablity \\(p_i\\)\nThis is achieved by using relative probablities, i.e., \\(\\frac{p_i}{p_j}\\)\nFrom this we get the correct average quantities.\nThis works because, even though we don’t know \\(Z\\) and can’t determine \\(p_i\\), the results of \\(\\frac{p_i}{p_j}\\) gives the correct distribution\nRelative probablities are given as: \\[\n\\frac{p_i}{p_j} = \\frac{e^{-E_i/\\,k_B\\,T}}{Z} \\frac{Z}{e^{-E_j/\\,k_B\\,T}} = e^{-(E_i - E_j)/\\,k_B\\,T}\n\\qquad(6)\\]\nWhich only depends on energy difference between states as shown in graph"
   },
   {
-    "objectID": "presentation.html#kmc-cvd-example-height",
-    "href": "presentation.html#kmc-cvd-example-height",
+    "objectID": "presentation.html#metropolis-monte-carlo-2",
+    "href": "presentation.html#metropolis-monte-carlo-2",
     "title": "Kinetic Monte Carlo Notes",
-    "section": "KMC CVD Example height",
-    "text": "KMC CVD Example height"
+    "section": "Metropolis Monte Carlo",
+    "text": "Metropolis Monte Carlo\n\nFigure 3: Relative probablity for two states."
+  },
+  {
+    "objectID": "presentation.html#metropolis-monte-carlo-3",
+    "href": "presentation.html#metropolis-monte-carlo-3",
+    "title": "Kinetic Monte Carlo Notes",
+    "section": "Metropolis Monte Carlo",
+    "text": "Metropolis Monte Carlo\n\nIn the metropolis MC approach we use the relations on Figure 3 to create a trajectory of states.\nThe steps for MMC are:\n\nGenerate configuration \\(i\\) with \\(E_i\\)\nRandomly trial configuration, \\(i+1\\), and calculate \\(E_{i+1}\\)\nGet relative probablity via Equation 6.\nUse relations in Figure 3 to accept or accept with probability \\(\\frac{p_i}{p_j} < 1\\) given a randomly generated number betwen \\((0,1)\\)"
   },
   {
     "objectID": "presentation.html#backmatter",

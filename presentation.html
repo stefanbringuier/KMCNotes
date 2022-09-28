@@ -371,7 +371,7 @@
 <section id="example-integrating-a-function-using-mc-sampling" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Example integrating a function using MC sampling<a href="#/footnotes" class="footnote-ref" id="fnref1" role="doc-noteref" data-footnote-href="#/fn1" onclick=""><sup>1</sup></a></h2>
 <div class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="81">
 <div id="fig-mc-int-a" class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="presentation_files/figure-revealjs/fig-mc-int-a-output-1.svg" class="img-fluid"></p>
@@ -443,13 +443,40 @@ Z = \sum_i e^{-\beta\,X_i}
 <li>This eliminates the feasability for determining the partition function <span class="math inline">\(Z\)</span> which is required to know the probablity of any specific configuration <span class="math inline">\(p_i\)</span></li>
 </ul>
 </section>
-<section id="kmc-cvd-example" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">KMC CVD Example</h2>
-<!-- ![KMC Example](figures/KMC_CVD_12x12_1000.gif){#fig-kmc-cvd-example} -->
+<section id="metropolis-monte-carlo-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Metropolis Monte Carlo</h2>
+<div style="font-size: 0.9em; text-align: center">
+<ul>
+<li>The <a href="https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm">Metropolis algorithm</a> is a process to sample states <span class="math inline">\(i\)</span> with probablity <span class="math inline">\(p_i\)</span></li>
+<li>This is achieved by using relative probablities, i.e., <span class="math inline">\(\frac{p_i}{p_j}\)</span></li>
+<li>From this we get the correct average quantities.</li>
+<li>This works because, even though we don’t know <span class="math inline">\(Z\)</span> and can’t determine <span class="math inline">\(p_i\)</span>, the results of <span class="math inline">\(\frac{p_i}{p_j}\)</span> gives the correct distribution</li>
+<li>Relative probablities are given as: <span id="eq-relative-probs"><span class="math display">\[
+\frac{p_i}{p_j} = \frac{e^{-E_i/\,k_B\,T}}{Z} \frac{Z}{e^{-E_j/\,k_B\,T}} = e^{-(E_i - E_j)/\,k_B\,T}
+\qquad(6)\]</span></span></li>
+<li>Which only depends on energy difference between states as shown in graph</li>
+</ul>
+</div>
 </section>
-<section id="kmc-cvd-example-height" class="slide level2">
-<h2>KMC CVD Example height</h2>
-<!-- ![KMC Surface Height](figures/KMC_CVD_12x12_1000_surface_height.svg){#fig-kmc-cvd-example-height} -->
+<section id="metropolis-monte-carlo-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Metropolis Monte Carlo</h2>
+
+<img data-src="presentation_files/figure-revealjs/fig-relative-probs-output-1.svg" class="img-fluid r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;3: Relative probablity for two states.</p></section>
+<section id="metropolis-monte-carlo-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Metropolis Monte Carlo</h2>
+<ul>
+<li>In the metropolis MC approach we use the relations on <a href="#/fig-relative-probs">Figure&nbsp;3</a> to create a trajectory of states.</li>
+<li>The steps for MMC are:
+<ol type="1">
+<li>Generate configuration <span class="math inline">\(i\)</span> with <span class="math inline">\(E_i\)</span></li>
+<li>Randomly trial configuration, <span class="math inline">\(i+1\)</span>, and calculate <span class="math inline">\(E_{i+1}\)</span></li>
+<li>Get relative probablity via <a href="#/eq-relative-probs">Equation&nbsp;6</a>.</li>
+<li>Use relations in <a href="#/fig-relative-probs">Figure&nbsp;3</a> to accept or accept with probability <span class="math inline">\(\frac{p_i}{p_j} &lt; 1\)</span> given a randomly generated number betwen <span class="math inline">\((0,1)\)</span></li>
+</ol></li>
+</ul>
+</section>
+<section id="section" class="slide level2" data-background-iframe="https://stefanbringuier.github.io/PlutoNotebookBlogging/assets/notebooks/KMC_CVD.html" data-background-interactive="true">
+<h2></h2>
 </section>
 <section id="backmatter" class="slide level2 appendix smaller">
 <h2>Backmatter</h2>
