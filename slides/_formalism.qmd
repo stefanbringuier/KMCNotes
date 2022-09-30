@@ -174,8 +174,8 @@ $${#eq-relative-probs}
 #| echo: false
 #| label: fig-relative-probs
 #| fig-cap: Relative probablity for two states.
-plot(exp,range(0,10,length=100),yaxis=:log,ylabel="relative prob.", xlabel = "\$\\Delta E\$")
-plot!(exp,range(-10,0,length=100),yaxis=:log)
+plot(exp,range(0,10,length=100),yaxis=:log,ylabel="relative prob.", xlabel = "\$\\Delta E\$",label=nothing)
+plot!(exp,range(-10,0,length=100),yaxis=:log,label=nothing)
 hline!([1],label=nothing,ls=:dash,lc=:black)
 annotate!([(-3,100,"if \$E_i - E_j \\leq 0\$ then \$\\frac{p_i}{p_j} \\geq 1\$")])
 annotate!([(3,0.001,"if \$E_i - E_j > 0\$ then \$\\frac{p_i}{p_j}  < 1\$")])
@@ -189,3 +189,25 @@ annotate!([(3,0.001,"if \$E_i - E_j > 0\$ then \$\\frac{p_i}{p_j}  < 1\$")])
 	2. Randomly trial configuration, $i+1$, and calculate $E_{i+1}$
 	3. Get relative probablity via @eq-relative-probs.
 	4. Use relations in @fig-relative-probs to accept or accept with probability $\frac{p_i}{p_j} < 1$ given a randomly generated number betwen $(0,1)$
+	5. If accepted, add $i+1$ to trajectory, otherwise add $i$ again^[It is required to add the previous configuration $i$ to the trajectory if the configuration $i+1$ is rejected in order to ensure the distribution is valid]. Repeat until quantity $\langle X \rangle = \frac{1}{N} \sum_{i=1}^N X_i$
+
+## Metropolis Monte Carlo {auto-animate=true}
+
+```{julia}
+#| echo: false
+#| label: fig-mmc-plot
+#| fig-cap: Acceptance and rejection of Metropolis MC (see @Lesar2013).
+ΔE = range(-0.1,2.0,length=100)
+plot(ΔE,exp.(-ΔE),lc=:black,label="\$ e^{-\\Delta E/k_B T} \$")
+vline!([0.0],ls=:dash,lc=:black,label=nothing)
+hline!([1.0],ls=:dash,lc=:black,label=nothing)
+plot!(-1:0,1:2,fill=(1,0.5,:red),lc=:white,label="Always Accept")
+scatter!([1.0,1.0],[0.8,0.2],marker = (7, 1.0, :black),
+		 series_annotations=[text("⟶ Reject",:left,16),text("⟶ Accept",:left,16)],
+		 label=nothing)
+vline!([1.0],lc=:black,alpha=0.25,label=nothing)
+xlims!(-0.1,2.0)
+ylims!(0.0,1.2)
+xlabel!("\$\\Delta E\\,/k_B\\,T\$")
+ylabel!("Relative prob.")
+```

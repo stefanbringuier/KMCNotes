@@ -49,18 +49,39 @@
     "text": "Statistical Thermodynamics & Ensemble Properties\n\n\nThe biggest challenge in evaluating Equation 5 is it requires knowledge of all possible configurations.\nIf \\(Z\\) is a configurational integral, e.g., \\(Z = \\int e^{-U(\\mathbf{r}^N)/k_B\\,T} d\\mathbf{r}^N\\), then there are \\(3N\\) possible configs!\nThe key insight is that most configurations are not probable:\n\nIf the two atoms are extremely close at moderate \\(T\\), the term \\(U(\\mathbf{r})\\) is large an hence the probablity low.\n\nThe question then becomes, can we determine \\(p_i = \\frac{1}{Z}e^{-\\frac{E_i}{k_B\\,T}}\\) efficiently, that is the states with highest probablity centered around \\(\\langle E \\rangle\\) given that \\(Z\\) is not accessible.\n\n\n\n\n\\(U(\\mathbf{r})\\) is the potential energy between pairs of atoms."
   },
   {
-    "objectID": "presentation.html#kmc-cvd-example",
-    "href": "presentation.html#kmc-cvd-example",
+    "objectID": "presentation.html#metropolis-monte-carlo",
+    "href": "presentation.html#metropolis-monte-carlo",
     "title": "Kinetic Monte Carlo Notes",
-    "section": "KMC CVD Example",
-    "text": "KMC CVD Example\n\nFigure 3: KMC Example"
+    "section": "Metropolis Monte Carlo",
+    "text": "Metropolis Monte Carlo\n\nIf we wanted to evaluate Equation 5 for an atomic system (i.e. the discrete states are replaced by continous atomic configurations), we could use the MC sampling as in Equation 2.\nHowever we need to integrate over \\(3N\\) dimensions!\nThis eliminates the feasability for determining the partition function \\(Z\\) which is required to know the probablity of any specific configuration \\(p_i\\)"
   },
   {
-    "objectID": "presentation.html#kmc-cvd-example-height",
-    "href": "presentation.html#kmc-cvd-example-height",
+    "objectID": "presentation.html#metropolis-monte-carlo-1",
+    "href": "presentation.html#metropolis-monte-carlo-1",
     "title": "Kinetic Monte Carlo Notes",
-    "section": "KMC CVD Example height",
-    "text": "KMC CVD Example height\n\nFigure 4: KMC Surface Height"
+    "section": "Metropolis Monte Carlo",
+    "text": "Metropolis Monte Carlo\n\n\nThe Metropolis algorithm is a process to sample states \\(i\\) with probablity \\(p_i\\)\nThis is achieved by using relative probablities, i.e., \\(\\frac{p_i}{p_j}\\)\nFrom this we get the correct average quantities.\nThis works because, even though we don’t know \\(Z\\) and can’t determine \\(p_i\\), the results of \\(\\frac{p_i}{p_j}\\) gives the correct distribution\nRelative probablities are given as: \\[\n\\frac{p_i}{p_j} = \\frac{e^{-E_i/\\,k_B\\,T}}{Z} \\frac{Z}{e^{-E_j/\\,k_B\\,T}} = e^{-(E_i - E_j)/\\,k_B\\,T}\n\\qquad(6)\\]\nWhich only depends on energy difference between states as shown in graph"
+  },
+  {
+    "objectID": "presentation.html#metropolis-monte-carlo-2",
+    "href": "presentation.html#metropolis-monte-carlo-2",
+    "title": "Kinetic Monte Carlo Notes",
+    "section": "Metropolis Monte Carlo",
+    "text": "Metropolis Monte Carlo\n\nFigure 3: Relative probablity for two states."
+  },
+  {
+    "objectID": "presentation.html#metropolis-monte-carlo-3",
+    "href": "presentation.html#metropolis-monte-carlo-3",
+    "title": "Kinetic Monte Carlo Notes",
+    "section": "Metropolis Monte Carlo",
+    "text": "Metropolis Monte Carlo\n\nIn the metropolis MC approach we use the relations on Figure 3 to create a trajectory of states.\nThe steps for MMC are:\n\nGenerate configuration \\(i\\) with \\(E_i\\)\nRandomly trial configuration, \\(i+1\\), and calculate \\(E_{i+1}\\)\nGet relative probablity via Equation 6.\nUse relations in Figure 3 to accept or accept with probability \\(\\frac{p_i}{p_j} < 1\\) given a randomly generated number betwen \\((0,1)\\)\nIf accepted, add \\(i+1\\) to trajectory, otherwise add \\(i\\) again2. Repeat until quantity \\(\\langle X \\rangle = \\frac{1}{N} \\sum_{i=1}^N X_i\\)"
+  },
+  {
+    "objectID": "presentation.html#metropolis-monte-carlo-4",
+    "href": "presentation.html#metropolis-monte-carlo-4",
+    "title": "Kinetic Monte Carlo Notes",
+    "section": "Metropolis Monte Carlo",
+    "text": "Metropolis Monte Carlo\n\nFigure 4: Acceptance and rejection of Metropolis MC (see LeSar (2013))."
   },
   {
     "objectID": "presentation.html#backmatter",
@@ -70,10 +91,10 @@
     "text": "Backmatter\nConnect with me!\n\n\n\n\n\n\nstefanbringuier@gmail.com\n  \n\n\n\n\n\n\n\nNote\n\n\nThis presentation can be viewed online at https://stefanbringuier.github.io/KMCNotes. A report formated PDF of this presentation can be downloaded here.\n\n\n\n\n\n\n\n\n\nTip\n\n\nTo export revealjs presentations to pdf, press ‘e’ then ‘ctrl-p’ ➡ ‘save as pdf’"
   },
   {
-    "objectID": "presentation.html#references-footnotes",
-    "href": "presentation.html#references-footnotes",
+    "objectID": "presentation.html#references",
+    "href": "presentation.html#references",
     "title": "Kinetic Monte Carlo Notes",
-    "section": "References & footnotes",
-    "text": "References & footnotes\n\n\n\n\n\n\nStefan Bringuier"
+    "section": "References",
+    "text": "References\n\n\nAndersen, Mie, Chiara Panosetti, and Karsten Reuter. 2019. “A Practical Guide to Surface Kinetic Monte Carlo Simulations.” Frontiers in Chemistry 7. https://doi.org/10.3389/fchem.2019.00202.\n\n\nLeSar, R. 2013. Introduction to Computational Materials Science: Fundamentals to Applications. Cambridge University Press. https://books.google.com/books?id=QzkhAwAAQBAJ.\n\n\n“Numerical Integration - Midpoint, Trapezoid, Simpson’s Rule.” 2021.\n\n\n\n\n\nStefan Bringuier"
   }
 ]

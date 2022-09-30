@@ -435,14 +435,54 @@ Z = \sum_i e^{-\beta\,X_i}
 <aside><div>
 <p><span class="math inline">\(U(\mathbf{r})\)</span> is the potential energy between pairs of atoms.</p>
 </div></aside></section>
-<section id="kmc-cvd-example" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">KMC CVD Example</h2>
+<section id="metropolis-monte-carlo" class="slide level2">
+<h2>Metropolis Monte Carlo</h2>
+<ul>
+<li>If we wanted to evaluate <a href="#/eq-energy-nvt">Equation&nbsp;5</a> for an atomic system (i.e.&nbsp;the discrete states are replaced by continous atomic configurations), we could use the MC sampling as in <a href="#/eq-mc-int">Equation&nbsp;2</a>.</li>
+<li>However we need to integrate over <span class="math inline">\(3N\)</span> dimensions!</li>
+<li>This eliminates the feasability for determining the partition function <span class="math inline">\(Z\)</span> which is required to know the probablity of any specific configuration <span class="math inline">\(p_i\)</span></li>
+</ul>
+</section>
+<section id="metropolis-monte-carlo-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Metropolis Monte Carlo</h2>
+<div style="font-size: 0.9em; text-align: center">
+<ul>
+<li>The <a href="https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm">Metropolis algorithm</a> is a process to sample states <span class="math inline">\(i\)</span> with probablity <span class="math inline">\(p_i\)</span></li>
+<li>This is achieved by using relative probablities, i.e., <span class="math inline">\(\frac{p_i}{p_j}\)</span></li>
+<li>From this we get the correct average quantities.</li>
+<li>This works because, even though we don’t know <span class="math inline">\(Z\)</span> and can’t determine <span class="math inline">\(p_i\)</span>, the results of <span class="math inline">\(\frac{p_i}{p_j}\)</span> gives the correct distribution</li>
+<li>Relative probablities are given as: <span id="eq-relative-probs"><span class="math display">\[
+\frac{p_i}{p_j} = \frac{e^{-E_i/\,k_B\,T}}{Z} \frac{Z}{e^{-E_j/\,k_B\,T}} = e^{-(E_i - E_j)/\,k_B\,T}
+\qquad(6)\]</span></span></li>
+<li>Which only depends on energy difference between states as shown in graph</li>
+</ul>
+</div>
+</section>
+<section id="metropolis-monte-carlo-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Metropolis Monte Carlo</h2>
 
-<img data-src="figures/KMC_CVD_12x12_1000.gif" class="img-fluid r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;3: KMC Example</p></section>
-<section id="kmc-cvd-example-height" class="slide level2">
-<h2>KMC CVD Example height</h2>
+<img data-src="presentation_files/figure-revealjs/fig-relative-probs-output-1.svg" class="img-fluid r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;3: Relative probablity for two states.</p></section>
+<section id="metropolis-monte-carlo-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Metropolis Monte Carlo</h2>
+<ul>
+<li>In the metropolis MC approach we use the relations on <a href="#/fig-relative-probs">Figure&nbsp;3</a> to create a trajectory of states.</li>
+<li>The steps for MMC are:
+<ol type="1">
+<li>Generate configuration <span class="math inline">\(i\)</span> with <span class="math inline">\(E_i\)</span></li>
+<li>Randomly trial configuration, <span class="math inline">\(i+1\)</span>, and calculate <span class="math inline">\(E_{i+1}\)</span></li>
+<li>Get relative probablity via <a href="#/eq-relative-probs">Equation&nbsp;6</a>.</li>
+<li>Use relations in <a href="#/fig-relative-probs">Figure&nbsp;3</a> to accept or accept with probability <span class="math inline">\(\frac{p_i}{p_j} &lt; 1\)</span> given a randomly generated number betwen <span class="math inline">\((0,1)\)</span></li>
+<li>If accepted, add <span class="math inline">\(i+1\)</span> to trajectory, otherwise add <span class="math inline">\(i\)</span> again<a href="#/footnotes" class="footnote-ref" id="fnref2" role="doc-noteref" data-footnote-href="#/fn2" onclick=""><sup>2</sup></a>. Repeat until quantity <span class="math inline">\(\langle X \rangle = \frac{1}{N} \sum_{i=1}^N X_i\)</span></li>
+</ol></li>
+</ul>
+<aside></aside></section>
+<section id="metropolis-monte-carlo-4" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Metropolis Monte Carlo</h2>
 
-<img data-src="figures/KMC_CVD_12x12_1000_surface_height.svg" class="img-fluid r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;4: KMC Surface Height</p></section>
+<img data-src="presentation_files/figure-revealjs/fig-mmc-plot-output-1.svg" class="img-fluid r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;4: Acceptance and rejection of Metropolis MC (see <span class="citation" data-cites="Lesar2013">LeSar (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span>).</p></section>
+<section id="section" class="slide level2" data-background-iframe="https://stefanbringuier.github.io/PlutoNotebookBlogging/assets/notebooks/KMC_CVD.html" data-background-interactive="true">
+<h2></h2>
+</section>
 <section id="backmatter" class="slide level2 appendix smaller">
 <h2>Backmatter</h2>
 <h4 id="connect-with-me">Connect with me!</h4>
@@ -482,10 +522,18 @@ Z = \sum_i e^{-\beta\,X_i}
 </div>
 </div>
 </section>
-<section id="references-footnotes" class="slide level2 appendix smaller scrollable">
-<h2>References &amp; footnotes</h2>
-<div id="refs" role="doc-bibliography">
-
+<section id="references" class="slide level2 appendix smaller scrollable">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Andersen2019" class="csl-entry" role="doc-biblioentry">
+Andersen, Mie, Chiara Panosetti, and Karsten Reuter. 2019. <span>“A Practical Guide to Surface Kinetic Monte Carlo Simulations.”</span> <em>Frontiers in Chemistry</em> 7. <a href="https://doi.org/10.3389/fchem.2019.00202">https://doi.org/10.3389/fchem.2019.00202</a>.
+</div>
+<div id="ref-Lesar2013" class="csl-entry" role="doc-biblioentry">
+LeSar, R. 2013. <em>Introduction to Computational Materials Science: Fundamentals to Applications</em>. Cambridge University Press. <a href="https://books.google.com/books?id=QzkhAwAAQBAJ">https://books.google.com/books?id=QzkhAwAAQBAJ</a>.
+</div>
+<div id="ref-Numerical2021" class="csl-entry" role="doc-biblioentry">
+<span>“Numerical <span>Integration</span> - <span>Midpoint</span>, <span>Trapezoid</span>, <span>Simpson</span>’s Rule.”</span> 2021.
+</div>
 </div>
 
 
@@ -497,6 +545,7 @@ Z = \sum_i e^{-\beta\,X_i}
 
 <ol>
 <li id="fn1"><p>A more detailed notebook implementing the code can be viewed <a href="https://stefanbringuier.github.io/PlutoNotebookBlogging/assets/notebooks/TrivialMC.html">here</a></p></li>
+<li id="fn2"><p>It is required to add the previous configuration <span class="math inline">\(i\)</span> to the trajectory if the configuration <span class="math inline">\(i+1\)</span> is rejected in order to ensure the distribution is valid</p></li>
 </ol>
 </section>
     </div>
