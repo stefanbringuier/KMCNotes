@@ -371,7 +371,7 @@
 <section id="example-integrating-a-function-using-mc-sampling" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Example integrating a function using MC sampling<a href="#/footnotes" class="footnote-ref" id="fnref1" role="doc-noteref" data-footnote-href="#/fn1" onclick=""><sup>1</sup></a></h2>
 <div class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="81">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div id="fig-mc-int-a" class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="presentation_files/figure-revealjs/fig-mc-int-a-output-1.svg" class="img-fluid"></p>
@@ -472,9 +472,14 @@ Z = \sum_i e^{-\beta\,X_i}
 <li>Randomly trial configuration, <span class="math inline">\(i+1\)</span>, and calculate <span class="math inline">\(E_{i+1}\)</span></li>
 <li>Get relative probablity via <a href="#/eq-relative-probs">Equation&nbsp;6</a>.</li>
 <li>Use relations in <a href="#/fig-relative-probs">Figure&nbsp;3</a> to accept or accept with probability <span class="math inline">\(\frac{p_i}{p_j} &lt; 1\)</span> given a randomly generated number betwen <span class="math inline">\((0,1)\)</span></li>
+<li>If accepted, add <span class="math inline">\(i+1\)</span> to trajectory, otherwise add <span class="math inline">\(i\)</span> again<a href="#/footnotes" class="footnote-ref" id="fnref2" role="doc-noteref" data-footnote-href="#/fn2" onclick=""><sup>2</sup></a>. Repeat until quantity <span class="math inline">\(\langle X \rangle = \frac{1}{N} \sum_{i=1}^N X_i\)</span></li>
 </ol></li>
 </ul>
-</section>
+<aside></aside></section>
+<section id="metropolis-monte-carlo-4" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Metropolis Monte Carlo</h2>
+
+<img data-src="presentation_files/figure-revealjs/fig-mmc-plot-output-1.svg" class="img-fluid r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;4: Acceptance and rejection of Metropolis MC (see <span class="citation" data-cites="Lesar2013">LeSar (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span>).</p></section>
 <section id="section" class="slide level2" data-background-iframe="https://stefanbringuier.github.io/PlutoNotebookBlogging/assets/notebooks/KMC_CVD.html" data-background-interactive="true">
 <h2></h2>
 </section>
@@ -540,6 +545,7 @@ LeSar, R. 2013. <em>Introduction to Computational Materials Science: Fundamental
 
 <ol>
 <li id="fn1"><p>A more detailed notebook implementing the code can be viewed <a href="https://stefanbringuier.github.io/PlutoNotebookBlogging/assets/notebooks/TrivialMC.html">here</a></p></li>
+<li id="fn2"><p>It is required to add the previous configuration <span class="math inline">\(i\)</span> to the trajectory if the configuration <span class="math inline">\(i+1\)</span> is rejected in order to ensure the distribution is valid</p></li>
 </ol>
 </section>
     </div>

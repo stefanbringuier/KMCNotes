@@ -74,7 +74,14 @@
     "href": "presentation.html#metropolis-monte-carlo-3",
     "title": "Kinetic Monte Carlo Notes",
     "section": "Metropolis Monte Carlo",
-    "text": "Metropolis Monte Carlo\n\nIn the metropolis MC approach we use the relations on Figure 3 to create a trajectory of states.\nThe steps for MMC are:\n\nGenerate configuration \\(i\\) with \\(E_i\\)\nRandomly trial configuration, \\(i+1\\), and calculate \\(E_{i+1}\\)\nGet relative probablity via Equation 6.\nUse relations in Figure 3 to accept or accept with probability \\(\\frac{p_i}{p_j} < 1\\) given a randomly generated number betwen \\((0,1)\\)"
+    "text": "Metropolis Monte Carlo\n\nIn the metropolis MC approach we use the relations on Figure 3 to create a trajectory of states.\nThe steps for MMC are:\n\nGenerate configuration \\(i\\) with \\(E_i\\)\nRandomly trial configuration, \\(i+1\\), and calculate \\(E_{i+1}\\)\nGet relative probablity via Equation 6.\nUse relations in Figure 3 to accept or accept with probability \\(\\frac{p_i}{p_j} < 1\\) given a randomly generated number betwen \\((0,1)\\)\nIf accepted, add \\(i+1\\) to trajectory, otherwise add \\(i\\) again2. Repeat until quantity \\(\\langle X \\rangle = \\frac{1}{N} \\sum_{i=1}^N X_i\\)"
+  },
+  {
+    "objectID": "presentation.html#metropolis-monte-carlo-4",
+    "href": "presentation.html#metropolis-monte-carlo-4",
+    "title": "Kinetic Monte Carlo Notes",
+    "section": "Metropolis Monte Carlo",
+    "text": "Metropolis Monte Carlo\n\nFigure 4: Acceptance and rejection of Metropolis MC (see LeSar (2013))."
   },
   {
     "objectID": "presentation.html#backmatter",
